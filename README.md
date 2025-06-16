@@ -24,7 +24,7 @@
 
 1. Склонируйте репозиторий:
 ```bash
-git clone https://github.com/ваш-аккаунт/calculator.git
+git clone https://github.com/Bruc3Wayne666/test_task_june.git
 ```
 
 2. Установите зависимости:
