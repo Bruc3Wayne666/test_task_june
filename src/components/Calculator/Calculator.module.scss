@@ -1,0 +1,162 @@
+.calculator {
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 20px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+
+  &.light {
+    --bg-color: #f7f7f7;
+    --display-color: #000000;
+    --button-bg: #e0e0e0;
+    --button-active: #b3b3b3;
+    --operator-bg: #ff9500;
+    --operator-active: #ffaa33;
+    --function-bg: #d4d4d4;
+    --function-active: #a6a6a6;
+    --button-text: #000000;
+    --function-text: #000000;
+    --theme-toggle-color: #000000;
+    background: var(--bg-color);
+  }
+
+  &.dark {
+    --bg-color: #000000;
+    --display-color: #ffffff;
+    --button-bg: #333333;
+    --button-active: #737373;
+    --operator-bg: #ff9f0a;
+    --operator-active: #ffb340;
+    --function-bg: #a5a5a5;
+    --function-active: #d9d9d9;
+    --button-text: #ffffff;
+    --function-text: #000000;
+    --theme-toggle-color: #ff9f0a;
+    background: var(--bg-color);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  padding: 0 5px;
+}
+
+.display {
+  color: var(--display-color);
+  font-size: 5rem;
+  font-weight: 300;
+  text-align: right;
+  padding: 40px 20px 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.buttonsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 12px;
+  margin-bottom: 10px;
+}
+
+.button {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+
+  &:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.numberButton {
+  background: var(--button-bg);
+  color: var(--button-text);
+
+  &:active {
+    background: var(--button-active);
+  }
+}
+
+.functionButton {
+  background: var(--function-bg);
+  color: var(--function-text);
+
+  &:active {
+    background: var(--function-active);
+  }
+}
+
+.operatorButton {
+  background: var(--operator-bg);
+  color: var(--button-text);
+
+  &:active {
+    background: var(--operator-active);
+  }
+
+  &.active {
+    background: var(--button-text);
+    color: var(--operator-bg);
+  }
+}
+
+.zeroButton {
+  grid-column: span 2;
+  aspect-ratio: 2/1;
+  border-radius: 50px;
+  justify-content: flex-start;
+  padding-left: 30px;
+}
+
+.equalsButton {
+  background: var(--operator-bg);
+  color: var(--button-text);
+
+  &:active {
+    background: var(--operator-active);
+  }
+}
+
+@media (max-width: 400px) {
+  .calculator {
+    border-radius: 0;
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px 10px 30px;
+  }
+
+  .display {
+    font-size: 4rem;
+    padding: 20px 20px 10px;
+    margin-bottom: 10px;
+  }
+
+  .button {
+    font-size: 1.8rem;
+  }
+
+  .buttonsGrid {
+    grid-gap: 8px;
+  }
+}
